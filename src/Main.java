@@ -3,7 +3,7 @@
  */
 public class Main {
     public static void main(String[] args) {
-        int randomSize = (int)(Math.random()*1000%50);
+        int randomSize = 20;
         Board board = new Board(randomSize);
     }
 }
