@@ -4,6 +4,10 @@
 public class Main {
     public static void main(String[] args) {
         int randomSize = 50;
-        Board board = new Board(randomSize);
+        //Board board = new Board(randomSize);
+        //Dice dice = new Dice();
+        //System.out.println(dice.roll_k100());
+        Character character = new Character();
+        character.generateDNDcharacter();
     }
 }
