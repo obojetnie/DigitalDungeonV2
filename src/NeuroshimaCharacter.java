@@ -9,7 +9,7 @@ import java.util.List;
  * Created by pieru on 08.09.2016.
  */
 public class NeuroshimaCharacter extends Character {
-    private static NeuroshimaEnum placeOfOrigin;
+    private NeuroshimaEnum placeOfOrigin;
     private NeuroshimaEnum featureOfOrigin;
     private NeuroshimaEnum profession;
     private NeuroshimaEnum featureOfProfession;
@@ -28,8 +28,8 @@ public class NeuroshimaCharacter extends Character {
     private int food;
     private int water;
 
-    static JTextField nameTexField;
-    static JComboBox placeOfOriginList;
+    JTextField nameTexField;
+    JComboBox placeOfOriginList;
 
 
     private String imputDialogString(String message, String errorMessage){
@@ -65,7 +65,7 @@ public class NeuroshimaCharacter extends Character {
         return result;
     }
 
-    private static void saveNameAndPlaceOfOrigin(){
+    private void saveNameAndPlaceOfOrigin(){
         String placeOfOriginName = placeOfOriginList.getSelectedItem().toString();
         name = nameTexField.getText();
         switch(placeOfOriginName){
@@ -76,29 +76,40 @@ public class NeuroshimaCharacter extends Character {
                 placeOfOrigin = NeuroshimaEnum.DETROIT;
                 break;
             case  "Appalachian Federation":
+                placeOfOrigin = NeuroshimaEnum.APPALACHIAN_FEDERATION;
                 break;
             case  "Desert Man":
+                placeOfOrigin = NeuroshimaEnum.DESERT_MAN;
                 break;
             case  "Miami":
+                placeOfOrigin = NeuroshimaEnum.MIAMI;
                 break;
             case  "Missisipi":
+                placeOfOrigin = NeuroshimaEnum.MISSISIPI;
                 break;
             case  "New York":
+                placeOfOrigin = NeuroshimaEnum.NEW_YORK;
                 break;
             case  "South Hegemony":
+                placeOfOrigin = NeuroshimaEnum.SOUTH_HEGEMONY;
                 break;
             case  "Sentinel":
+                placeOfOrigin = NeuroshimaEnum.SENTINEL;
                 break;
             case  "Salk Lake City":
+                placeOfOrigin = NeuroshimaEnum.SALT_LAKE_CITY;
                 break;
             case  "Texas":
+                placeOfOrigin = NeuroshimaEnum.TEXAS;
                 break;
             case  "Vegas":
+                placeOfOrigin = NeuroshimaEnum.VEGAS;
                 break;
         }
+        System.out.println(placeOfOrigin);
     }
 
-    private static void createAndShowGUI() {
+    private void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("Character Creation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
