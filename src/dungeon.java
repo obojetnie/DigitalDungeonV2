@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Date;
-public class dungeon {
+public class Dungeon {
 
     //size of the map
     private int xsize = 0;
@@ -32,8 +32,8 @@ public class dungeon {
     final private int tileChest = 8;
 
     //misc. messages to print
-    private String msgXSize = "X size of dungeon: \t";
-    private String msgYSize = "Y size of dungeon: \t";
+    private String msgXSize = "X size of Dungeon: \t";
+    private String msgYSize = "Y size of Dungeon: \t";
     private String msgMaxObjects = "max # of objects: \t";
     private String msgNumObjects = "# of objects made: \t";
     private String msgHelp = "";
@@ -359,8 +359,8 @@ public class dungeon {
         /*******************************************************************************/
 
         //define the dimensions of the room, it should be at least 4x4 tiles (2x2 for walking on, the rest is walls)
-        int xlen = getRand(4, xlength);
-        int ylen = getRand(4, ylength);
+        int xlen = getRand(4, xlength*2);
+        int ylen = getRand(4, ylength*2);
 
         //the tile type it's going to be filled with
         int floor = tileDirtFloor; //jordgolv..
@@ -491,51 +491,4 @@ public class dungeon {
         }
         return dungeonMap;
     }
-    /*
-    PGraphics generateDungeonImage() {
-
-        PGraphics dungeonImage = createGraphics(xsize * TILE_SIZE, ysize * TILE_SIZE, JAVA2D);
-        dungeonImage.beginDraw();
-        dungeonImage.noStroke();
-
-        for (int y = 0; y < ysize; y++) {
-            for (int x = 0; x < xsize; x++) {
-                switch (getCell(x, y)) {
-                    case 0: // Unused
-                        dungeonImage.fill(54, 47, 45);
-                        break;
-                    case 1: // Dirt Wall
-                        dungeonImage.fill(96, 57, 19);
-                        break;
-                    case 2: // Dirt Floor
-                        dungeonImage.fill(166, 124, 82);
-                        break;
-                    case 3: // Stone Wall
-                        dungeonImage.fill(115, 99, 87);
-                        break;
-                    case 4: // Corridor
-                        dungeonImage.fill(123, 46, 0);
-                        break;
-                    case 5: // Door
-                        dungeonImage.fill(0, 118, 163);
-                        break;
-                    case 6: // Stairs Up
-                        dungeonImage.fill(100, 200, 100);
-                        break;
-                    case 7: // Stairs Down
-                        dungeonImage.fill(200, 100, 100);
-                        break;
-                    case 8: // Treasure Chest
-                        dungeonImage.fill(255, 247, 153);
-                        break;
-                }
-                dungeonImage.rect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-            }
-        }
-
-        dungeonImage.endDraw();
-
-        return dungeonImage;
-    }*/
-
 }

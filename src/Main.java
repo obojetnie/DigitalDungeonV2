@@ -7,11 +7,11 @@ public class Main {
         //Board board = new Board(randomSize);
         //Dice dice = new Dice();
         //System.out.println(dice.roll_k100());
-        //Character character = new Character();
-        //character.generateDNDcharacter();
-        dungeon d = new dungeon();
-        d.createDungeon(50,50,20);
+        NeuroshimaCharacter character = new NeuroshimaCharacter();
+        character.generateCharacter();
+        Dungeon d = new Dungeon();
+        //d.createDungeon(50,50,20);
 
-        System.out.println(d.showDungeon());
+        //System.out.println(d.showDungeon());
     }
 }
