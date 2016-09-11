@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<project name="Multi_User" basedir="." default="package">
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+    <property name="dist" location="dist"/>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+
+    <target name="init">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${dist}"/>
+    </target>
+    <target name="build">
+        <javac srcdir="${src}" destdir="${build}" source="1.4" debug="true"/>
+    </target>
+    <target name="package">
+        <jar destfile="${dist}/voicechat.jar" basedir="${build}" includes="**">
+            <manifest>
+                <attribute name="Main-Class" value="org.multichat.server.ChatServer"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="full_build" depends="clean,init,build,package"/>
+</project>

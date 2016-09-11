@@ -1,0 +1,26 @@
+This code only works with JAVA 2!!!
+----------------------------------
+
+If you dont know java and still want to use this code..
+-------------
+Java files are not script and need to be compiled.
+To compile java files you use javac filename.java
+To run java files you use java filename
+
+
+How to create and sign jar's with certificates
+----------------------------------------------
+keytool -genkey -alias signFiles -keypass kpi135 -keystore susanstore -storepass ab987c
+jarsigner -keystore susanstore -signedjar svoicechat.jar voicechat.jar signFiles 
+You will be prompted for the store password (ab987c) and the private key password (kpi135). 
+keytool -export -keystore susanstore -alias signFiles -file SusanJones.cer
+
+this is the site where I got these instructions from.
+http://java.sun.com/docs/books/tutorial/security1.2/toolsign/signer.html
+
+To run it on your web page
+---------------------------
+0) compile all the files, You need javas development kit for that.
+1) generate and sign a jar file you need javas development kit for that
+2) change the voicechat.html host field to your java servers ip address or name
+3) run org.multichat.server.ChatServer.java <--- this is the server for the chat

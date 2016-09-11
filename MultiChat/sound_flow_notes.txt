@@ -1,0 +1,35 @@
+Recording
+-----------
+Recorder.run() reads in bytes and sticks them into CommonSoundClass.writebyte(byte[])
+which puts them into a vector
+
+ProcessRecordedSoundThread.run() reads data from the CommonSoundClass vector
+if the length < 10
+	write and then clears the content in CSC
+else
+    ...	
+
+Playing
+---------
+ChatClient.run receives the data and sticks it in receivedByteVector by checking if data ends
+	in breaker or bytes read == the max size of 3071
+ClientMessageHandlerThread.run reads data that's in receivedByteVector
+
+
+Server Handling
+----------------------
+Server reads in data in ChatHandler.run() and puts it into the receivedByteVector
+
+Server processes in ReceivedQueueProcessorThread.run which calls processData
+	If data is >= 100 bytes, it assumes it's audio and just writes the data out
+	Every 8 audio pieces it sends the talking indicator to everyone
+	Writes audio to everyone except the speaker
+
+Server sends outgoing data in ServerSendThread.run by reading from CommonSOundClass and
+	just writing it out
+
+-----
+Notes
+-------
+Queue has queueWaitSize set to wait for 12 queued sound items before playing. Changing to 1 or 0
+greatly decreases the delay.
