@@ -3,4 +3,5 @@
  */
 public class Character {
     public String name;
+    public String surname;
 }

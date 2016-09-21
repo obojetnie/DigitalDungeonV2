@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +26,7 @@ public class NeuroshimaCharacter extends Character {
     private NeuroshimaEnum sickness;
     private NeuroshimaEnum sicknessCase;
     private String medicine;
-
+    private String sex;
     private int medicines;
     private int food;
     private int water;
@@ -31,6 +34,75 @@ public class NeuroshimaCharacter extends Character {
     JTextField nameTexField;
     JComboBox placeOfOriginList;
 
+    public NeuroshimaCharacter() {
+        sex = "male";
+    }
+
+    public void generateSurname(){
+        BufferedReader br = null;
+        String[] characters = new String[1024];//just an example - you have to initialize it to be big enough to hold all the lines!
+
+        try {
+            String sCurrentLine;
+            br = new BufferedReader(new FileReader("surnames.txt"));
+            int rand = (int)((Math.random()*1000%200)+1);
+            int i=0;
+            while ((sCurrentLine = br.readLine()) != null) {
+                String[] arr = sCurrentLine.split("\t");
+                if(i == rand){
+                    surname = arr[1];
+                    System.out.println(surname);
+                    break;
+                }
+
+                i++;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null)br.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public void generateName(){
+        BufferedReader br = null;
+        String[] characters = new String[1024];//just an example - you have to initialize it to be big enough to hold all the lines!
+
+        try {
+            String sCurrentLine;
+            br = new BufferedReader(new FileReader("names.txt"));
+            int rand = (int)((Math.random()*1000%200)+1);
+            int i=0;
+            while ((sCurrentLine = br.readLine()) != null) {
+                String[] arr = sCurrentLine.split("\t");
+                if(Integer.parseInt(arr[0]) == rand){
+                    if(sex.equals("male")){
+                        name = arr[2];
+                    }else{
+                        name = arr[1];
+                    }
+                    System.out.println(name);
+                    break;
+                }
+
+                i++;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null)br.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 
     private String imputDialogString(String message, String errorMessage){
         boolean incorrect = true;
