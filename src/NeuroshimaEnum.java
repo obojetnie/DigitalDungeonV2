@@ -295,7 +295,54 @@ public enum NeuroshimaEnum {
     GREEN_BALOON,
     BAD,
     MARK,
-    IRON_SUPLIES
+    IRON_SUPLIES,
+
+    //Stuff types
+    STIMULANTS,
+    FUEL,
+    MEDICINES,
+    COLD_STEELS,
+    FIREARMS,
+    ACCESSORIES_TO_FIREARMS,
+    ELECTRONICS,
+    VEHICLES,
+    ACCESSORIES_T0_CARS,
+    OTHERS,
+    FOOD_AND_LIVING_BEINGS,
+    SERVICES,
+    CHEMISTRY_AND_DRUGS,
+
+    //Ammo
+    A_38,
+    A_40_44,
+    A_44,
+    A_57,
+    A_762TT,
+    A_9,
+    A_45ACP,
+    A_50AE,
+    A_556,
+    A_762,
+    A_762_AK,
+    A_50BMG,
+
+    //Ammo quality
+    ORIGINAL,
+    HOMEMADE,
+
+    //Firearms type
+    REVOLVERS,
+    PISTOLS,
+    CARABINES,
+    MACHINE_GUNS,
+
+
+    //Damage
+    BRUISES,
+    SCRAPE,
+    SMALL_WOUND,
+    SERIOUS_WOUND,
+    CRITICAL_WOUND
 
 
 }

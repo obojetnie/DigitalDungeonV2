@@ -31,11 +31,16 @@ public class NeuroshimaCharacter extends Character {
     private int food;
     private int water;
 
+    private List<Stuff> inventory;
+    private List<Weapon> weapons;
+    private List<Ammo> ammo;
+    private double  maximumLoad;
+
     JTextField nameTexField;
     JComboBox placeOfOriginList;
 
     public NeuroshimaCharacter() {
-        sex = "male";
+        inventory = new ArrayList<>();
     }
 
     public void generateSurname(){
